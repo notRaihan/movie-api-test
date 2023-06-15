@@ -1,4 +1,4 @@
-name: Movie App CI/CD
+name: Movie App Test CI/CD
 
 on:
     push:
