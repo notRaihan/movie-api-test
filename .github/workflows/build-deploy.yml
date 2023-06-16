@@ -42,6 +42,6 @@ jobs:
                   sed -i "s|<imageName>|${{secrets.DOCKER_USER}}/movie-api:0.1.${GITHUB_RUN_NUMBER}|g" docker-compose.prod.yml
                   scp docker-compose.prod.yml ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.WORK_DIR }}
             - name: connect and running
-              run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && docker login -u $DOCKER_USER -p $DOCKER_PASSWORD && docker compose -f docker-compose.prod.yml up -d"
+              run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && docker login -u $DOCKER_USER -p $DOCKER_PASSWORD && docker-compose -f docker-compose.prod.yml up -d"
             - name: cleanup
               run: rm -rf ~/.ssh
