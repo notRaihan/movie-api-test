@@ -17,7 +17,7 @@ services:
       DB_NAME: movie_db
   db:
     container_name: postgres-db
-    image: postgres:12
+    image: postgres
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: 123456
